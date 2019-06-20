@@ -1,0 +1,14 @@
+.btn {
+  &-card {
+    font-weight: 700;
+    padding: 0.375rem 1rem;
+    line-height: 1.2;
+    background-color: $white;
+    border: 1px solid $blue;
+    color: $blue;
+    &:hover {
+      color: $white;
+      background-color: $blue;
+    }
+  }
+}
