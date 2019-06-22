@@ -8,7 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.component('students-componet', require('./components/StudentsComponet.vue').default);
+Vue.component('modal', require('./components/Modal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,4 +18,7 @@ Vue.component('students-componet', require('./components/StudentsComponet.vue').
 
 const app = new Vue({
     el: '#app',
+    data: {
+        showModal: false
+    }
 });

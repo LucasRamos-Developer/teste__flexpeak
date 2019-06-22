@@ -1,3 +1,20 @@
 .container-body {
   padding: 30px 15px;
+  .inline {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .alert {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    background-color: #FFF;
+    border-left-width: .25rem !important;
+    border-left-style: solid !important;
+    &.alert-success {
+      border-left-color: $green !important;
+    }
+    &.alert-warning {
+      border-left-color: $yellow !important;
+    }
+  }
 }

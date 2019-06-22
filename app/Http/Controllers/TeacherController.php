@@ -7,14 +7,20 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
+
+    public $layout = 'application';
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $teacher = new Teacher();
+        $data = Teacher::all();
+
+        return  view('teacher.index', compact('data', 'teacher'));
     }
 
     /**
@@ -24,7 +30,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        $teacher = new Teacher();
+        return view('teacher.create',  compact('teacher'));
     }
 
     /**
@@ -35,7 +42,14 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $teacher = new Teacher([
+            'name' => $request->get('name'),
+            'birth_date' => parent::date_to_db($request->get('birth_date')),
+        ]);
+
+        $teacher->save();
+
+        return redirect('/teachers')->with('alert', ['type' => 'success', 'msg' => 'Saved successfully!']);
     }
 
     /**
@@ -57,7 +71,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('teacher.edit', compact('teacher'));
     }
 
     /**
@@ -69,7 +83,11 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        $teacher->name = $request->get('name');
+        $teacher->birth_date = parent::date_to_db($request->get('birth_date'));
+        $teacher->save();
+
+        return redirect('/teachers')->with('alert', ['type' => 'success', 'msg' => 'Updated successfully!']);
     }
 
     /**
@@ -80,6 +98,8 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+  
+        return redirect('/teachers')->with('alert', ['type' => 'warning', 'msg' => 'Deleted successfully!']);
     }
 }

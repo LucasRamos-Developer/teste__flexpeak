@@ -1,8 +1,22 @@
 <template id="modal-template">
   <transition name="modal">
-    <div class="modal" @click="close" v-show="show">
-      <div class="modal-container" @click.stop>
-        <slot></slot>
+    <div class="modal-overlay">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <slot name="header">
+              <h5 class="modal-title">Modal title</h5>
+            </slot>
+            <button type="button" class="close" @click="$emit('close')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <slot name="body">
+              default body
+            </slot>
+          </div>
+        </div>
       </div>
     </div>
   </transition>
@@ -10,19 +24,6 @@
 
 <script>
   export default {
-    template: '#modal-template',
-    props: ['show'],
-    methods: {
-      close: function () {
-        this.$emit('close');
-      }
-    },
-    mounted: function () {
-      document.addEventListener("keydown", (e) => {
-        if (this.show && e.keyCode == 27) {
-          this.close();
-        }
-      });
-    }
+    template: 'modal-template'
   }
 </script>
