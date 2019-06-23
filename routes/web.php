@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+Route::get('students/report', 'StudentController@report')->name('students.report');
 
 Route::resource('teachers', 'TeacherController');
+Route::resource('courses', 'CourseController');
+Route::resource('students', 'StudentController');

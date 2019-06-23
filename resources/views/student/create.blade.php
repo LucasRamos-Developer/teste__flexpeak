@@ -9,12 +9,12 @@
       <div class="card shadow mb-4 inner" >
         <div class="card-header py-3">
           <h6 class="m-0">
-            Adicionar Novo Professor
+            Adicionar Novo Aluno
           </h6>
         </div>
         <div class="card-body">
-          {{ Form::open(['route' => 'teachers.store']) }}
-            @include('teacher.form')
+          {{ Form::open(['route' => 'students.store']) }}
+            @include('student.form')
           {{ Form::close() }}
         </div>
       </div>

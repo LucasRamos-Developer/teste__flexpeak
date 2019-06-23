@@ -16,16 +16,15 @@ class CreateTableStudents extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
            
+            $table->string('name')->nullable();
+            $table->date('birth_date')->nullable();
 
-            $table->string('name');
-            $table->date('birth_date');
-
-            $table->string('address_street');
-            $table->string('address_number');
-            $table->string('address_neighborhood');
-            $table->string('address_city');
-            $table->string('address_state');
-            $table->string('address_zipcode');
+            $table->string('address_street')->nullable();
+            $table->string('address_number')->nullable();
+            $table->string('address_neighborhood')->nullable();
+            $table->string('address_city')->nullable();
+            $table->string('address_state')->nullable();
+            $table->string('address_zipcode')->nullable();
 
             $table->timestamps();
 

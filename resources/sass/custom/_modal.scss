@@ -10,25 +10,13 @@
   .modal-header {
     background-color: #2c3e50;
     position: relative;
-    h3 {
+    h6 {
       font-weight: 700;
       color: #FFF;
       margin-bottom: 0;
       font-size: 1.1rem;
       line-height: normal;
       text-transform: uppercase;
-    }
-    .close {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: 0;
-      color: #FFF;
-      opacity: 0.7;
-      transition: all .2s linear;
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 }
@@ -38,10 +26,9 @@
   -webkit-transform: scale(1);
   transform: scale(1);
   max-width: 940px;
-  height: 80vh;
   margin: 10vh auto;
   .modal-body {
-    height: calc(80vh - 60px);
+    padding-bottom: 80px;
     .form-footer {
       position: absolute;
       width: 100%;

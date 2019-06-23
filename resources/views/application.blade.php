@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title') - Flexpeak</title>
 
@@ -10,7 +11,12 @@
         <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+        
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 
         <!-- Styles -->
@@ -23,19 +29,19 @@
                         <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('teachers*') ? 'active' : '' }}" href="#">Professores</a>
+                        <a class="nav-link {{ request()->is('teachers*') ? 'active' : '' }}" href="/teachers">Professores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cursos</a>
+                        <a class="nav-link {{ request()->is('courses*') ? 'active' : '' }}" href="/courses">Cursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Alunos</a>
+                        <a class="nav-link {{ request()->is('students*') ? 'active' : '' }}" href="/students">Alunos</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <div class="form-inline my-2 my-lg-0">
                     <form class="d-none d-sm-inline-block navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar Por..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                 <i class="fas fa-search fa-sm"></i>
@@ -52,6 +58,7 @@
             </div>
         </div>
     </body>
-
+    
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    @yield('script-content')
 </html>

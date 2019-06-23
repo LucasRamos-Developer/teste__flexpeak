@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+    protected $fillable = [
+        'name',
+        'teacher_id'
+    ];
     
     public function teacher()
     {
@@ -15,6 +19,11 @@ class Course extends Model
     public function students()
     {
         return $this->hasMany('App\Student');
+    }
+
+    public static function options_to_select()
+    {
+        
     }
     
 }
