@@ -84,7 +84,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $teachers = Teacher::pluck('name', 'id')->toArray();
-        return view('course.edit', compact('course'));
+        return view('course.edit', array('teachers' => $teachers, 'course' => $course));
     }
 
     /**
