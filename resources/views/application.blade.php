@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 
         <!-- Styles -->
     </head>
@@ -59,6 +59,6 @@
         </div>
     </body>
     
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('js/app.js') }}"></script>
     @yield('script-content')
 </html>
