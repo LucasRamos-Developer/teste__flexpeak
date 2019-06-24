@@ -40,7 +40,7 @@ class CourseController extends Controller
                 ->make(true);
         }else{
             $courses = Course::all();
-            return  view('course.index', compact('data'));
+            return  view('course.index', compact('courses'));
         }
     }
 
