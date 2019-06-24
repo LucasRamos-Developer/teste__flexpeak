@@ -26,7 +26,7 @@
             <thead>
               <tr>
                 <th class="index">No</th>
-                <th class="name">Name</th>
+                <th class="name">Nome</th>
                 <th class='teacher_id'>Professor</th>
                 <th width="160px" class='actions'>Ações</th>
               </tr>
